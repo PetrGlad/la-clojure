@@ -18,5 +18,6 @@
     <orderEntry type="library" name="clojure.sdk" level="project" />
     <orderEntry type="module" module-name="clojure-jps-plugin" />
     <orderEntry type="library" name="nrepl" level="project" />
+    <orderEntry type="library" name="copyright" level="application" />
   </component>
 </module>

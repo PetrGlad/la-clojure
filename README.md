@@ -1,7 +1,9 @@
 Project state
 =============
 
-The project is closed because of [Cursive Clojure](https://cursiveclojure.com/), which is more stable and feature-rich and it was originally based on La Clojure sources. The last update is available for IntelliJ IDEA 15 (as soon as Cursive Clojure will be available from JetBrains plugin manager, it won't be updated anymore).
+Minimal support for Clojure development (editor, REPL).
+
+For full-featured Clojure IDE with static analysis use [Cursive Clojure](https://cursiveclojure.com/) instead.
 
 la-clojure
 ==========
@@ -11,11 +13,10 @@ Clojure plugin for IntelliJ IDEA.
 
 Getting Started
 --
-You have decided to develop in Clojure with your favorite IDE.  Great!  This README will assume that you have already downloaded and installed the "la-clojure" plugin via "Settings -> Plugins".
+This README will assume that you have already downloaded and installed the "la-clojure" plugin via "Settings -> Plugins"
+and have configured JDK.
 
-If you are familiar with Clojure, your first intuition will be to try to open a REPL in the IDE.  However, before you do that, you must first create a Clojure project.
-
-This README assumes that you already have a JDK installed.  
+To open a REPL in the IDE and active Clojure project is required.
 
 1.  Click "File -> New Project -> Create Project from Scratch".
 2.  Enter a name for your project, and select "Java Module" as the type.  Click "Next".
