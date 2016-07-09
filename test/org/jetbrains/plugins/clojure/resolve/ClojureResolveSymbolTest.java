@@ -300,22 +300,20 @@ public class ClojureResolveSymbolTest extends ClojureResolveTestCaseBase {
   public void testJavaClass() throws Exception {
     configureByFileName(commonTestFile());
     final PsiReference reference = findReference();
-    if (reference instanceof PsiMultiReference) {
-      PsiMultiReference multiReference = (PsiMultiReference) reference;
-      for (ResolveResult result : multiReference.multiResolve(false)) {
-        final PsiElement element = result.getElement();
-        if (element instanceof PsiClass) {
-          PsiClass clazz = (PsiClass) element;
-          if (clazz.getName().equals("Arrays")) {
-            return;
-          }
+    if (!(reference instanceof PsiMultiReference)) {
+      fail();
+    }
+    PsiMultiReference multiReference = (PsiMultiReference) reference;
+    for (ResolveResult result : multiReference.multiResolve(false)) {
+      final PsiElement element = result.getElement();
+      if (element instanceof PsiClass) {
+        PsiClass clazz = (PsiClass) element;
+        if ("Arrays".equals(clazz.getName())) {
+          return;
         }
       }
-      assertTrue("No 'Arrays' class found", false);
-
-    } else {
-      assertTrue(false);
     }
+    fail("No 'Arrays' class found");
   }
 
 }

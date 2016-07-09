@@ -8,34 +8,29 @@ import java.io.IOException;
  */
 public class ClojureClassNameCompletionTest extends ClojureCompletionTestBase {
   public void testSimpleClassName() throws IOException {
-    String fileText =
-        "(ArrayList<caret>)";
-    configureFromFileText("dummy.clj", fileText);
+    configureFromFileText("dummy.clj", "(ArrayList<caret>)");
     final CompleteResult complete = complete(2);
-    String resultText =
-        "(ns dummy.clj\n" +
-            "  (:import [java.util ArrayList]))\n" +
-            "\n" +
-            "(ArrayList<caret>)";
+    assertNotNull(complete);
     completeLookupItem(complete.getElements()[0]);
-    checkResultByText(resultText);
+    checkResultByText("(ns dummy.clj\n" +
+        "  (:import [java.util ArrayList]))\n" +
+        "\n" +
+        "(ArrayList<caret>)");
   }
 
   public void testMoreClassName() throws IOException {
-    String fileText =
+    configureFromFileText("dummy.clj",
         "(ns dummy.clj\n" +
             "  (:import [java.util ArrayList]))\n" +
             "\n" +
-            "(Iterator<caret>)";
-    configureFromFileText("dummy.clj", fileText);
+            "(Iterator<caret>)");
     final CompleteResult complete = complete(2);
-    String resultText =
-        "(ns dummy.clj\n" +
-            "  (:import [java.util ArrayList Iterator]))\n" +
-            "\n" +
-            "(Iterator<caret>)";
+    assertNotNull(complete);
     completeLookupItem(complete.getElements()[0]);
-    checkResultByText(resultText);
+    checkResultByText("(ns dummy.clj\n" +
+        "  (:import [java.util ArrayList Iterator]))\n" +
+        "\n" +
+        "(Iterator<caret>)");
   }
 
   public void testClassNameInImport() throws IOException {
@@ -43,9 +38,8 @@ public class ClojureClassNameCompletionTest extends ClojureCompletionTestBase {
         "(import ArrayList<caret>)";
     configureFromFileText("dummy.clj", fileText);
     final CompleteResult complete = complete(2);
-    String resultText =
-        "(import java.util.ArrayList<caret>)";
+    assertNotNull(complete);
     completeLookupItem(complete.getElements()[0]);
-    checkResultByText(resultText);
+    checkResultByText("(import java.util.ArrayList<caret>)");
   }
 }

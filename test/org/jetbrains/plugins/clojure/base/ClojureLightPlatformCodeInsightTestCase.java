@@ -13,6 +13,7 @@ import com.intellij.openapi.startup.StartupManager;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.testFramework.LightPlatformCodeInsightTestCase;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.clojure.util.TestUtils;
 
 import java.io.File;
@@ -24,19 +25,13 @@ import java.util.List;
  * @since 16.01.13
  */
 public abstract class ClojureLightPlatformCodeInsightTestCase extends LightPlatformCodeInsightTestCase {
-  private static String JDK_HOME = TestUtils.getMockJdk();
-
+  @NotNull
   public String getTestDataPath() {
     return TestUtils.getTestDataPath();
   }
 
   protected boolean isConfigureSourceFolder() {
     return false;
-  }
-
-  @Override
-  protected Sdk getProjectJDK() {
-    return JavaSdk.getInstance().createJdk("java sdk", JDK_HOME, false);
   }
 
   protected void setUp() throws Exception {

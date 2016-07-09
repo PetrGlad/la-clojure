@@ -20,9 +20,7 @@ public abstract class ClojureResolveTestCaseBase extends ClojureLightPlatformCod
     return TestUtils.getTestDataPath() + "/";
   }
 
-  private static String JDK_HOME = TestUtils.getMockJdk();
-
-  public abstract String getTestDataPath();
+  public abstract String getTestDataPath(); // TODO (test, review) Overrides non-empty implementation.
 
   public String getTestFolderPath() {
     VirtualFile testDataRoot = LocalFileSystem.getInstance().findFileByPath(getTestDataPath());

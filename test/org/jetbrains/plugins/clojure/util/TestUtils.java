@@ -38,6 +38,7 @@ public class TestUtils {
   public static final String BEGIN_MARKER = "<begin>";
   public static final String END_MARKER = "<end>";
 
+  @NotNull
   public static String getTestDataPath() {
     if (TEST_DATA_PATH == null) {
       ClassLoader loader = TestUtils.class.getClassLoader();
@@ -56,11 +57,6 @@ public class TestUtils {
     }
     return TEST_DATA_PATH;
   }
-
-  public static String getMockJdk() {
-    return getTestDataPath() + "/mockJDK";
-  }
-
 
   public static String getMockClojureLib() {
     // TODO (tests, refactoring) Get rid of binary blobs
