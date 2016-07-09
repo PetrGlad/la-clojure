@@ -63,10 +63,13 @@ public class TestUtils {
 
 
   public static String getMockClojureLib() {
-    return getTestDataPath() + "/mockClojureLib/clojure-1.5.jar" ;
+    // TODO (tests, refactoring) Get rid of binary blobs
+    return getTestDataPath() + "/mockClojureLib/clojure-1.8.0.jar" ;
   }
 
   public static String getMockClojureContribLib() {
+    // TODO (tests, refactoring) Get rid of binary blobs
+    // TODO (tests, refactoring) Use Clojure's post 1.3 fine grained deps instead of clojure-contrib
     return getTestDataPath() + "/mockClojureLib/clojure-contrib.jar" ;
   }
 
