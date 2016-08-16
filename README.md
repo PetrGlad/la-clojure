@@ -45,7 +45,7 @@ Follow these steps:
 3. Download archive of the latest [IDEA 15 EAP](http://confluence.jetbrains.com/display/IDEADEV/IDEA+15+EAP) Ultimate or Community edition. Note, that for Windows and Community edition you need to download installer.
 4. Unpack it into `IDEA13SDK` directory (or symlink), `bin` directory should be in the root.
 5. Open 'La Clojure' project now
-6. Setup JDK. Additionally add `tools.jar`, from JDK `lib` directory. It contains JDI classes.
+6. Setup JDK. If classes from package `com.sun.jdi` are not found then add `tools.jar`, from JDK's `lib` directory to the project's JDK configuration.
 7. Now you can compile and run IDEA run configuration.
 8. To build plugin, run 'Production' artifact from IDEA (Build -> Build Artifacts)
 9. To attach IDEA sources you need to create sources.zip file (and put it in the `IDEA13SDK` directory) with the following structure: `community/java`, `community/platform` and so on (from plugins sources you need only copyright plugin).
