@@ -17,8 +17,6 @@
 
   <idea-version since-build="143.0" until-build=""/>
 
-  <depends optional="true" config-file="copyright.xml">com.intellij.copyright</depends>
-
   <extensions defaultExtensionNs="com.intellij">
     <errorHandler implementation="com.intellij.diagnostic.ITNReporter"/>
     <fileTypeFactory implementation="org.jetbrains.plugins.clojure.file.ClojureFileTypeLoader"/>
