@@ -66,8 +66,8 @@
     <completion.contributor id="clojureCompletionContributor" language="Clojure"
                             implementationClass="org.jetbrains.plugins.clojure.psi.resolve.completion.ClojureCompletionContributor"
                             order="first"/>
-    <completion.confidence language="Clojure" 
-                           implementationClass="org.jetbrains.plugins.clojure.psi.resolve.completion.ClojureCompletionConfidence" 
+    <completion.confidence language="Clojure"
+                           implementationClass="org.jetbrains.plugins.clojure.psi.resolve.completion.ClojureCompletionConfidence"
                            id="clojure" order="first"/>
 
     <stubElementTypeHolder class="org.jetbrains.plugins.clojure.parser.ClojureElementTypes"/>
@@ -152,30 +152,31 @@
       <action id="org.jetbrains.plugins.clojure.repl.actions.LoadClojureFileInConsoleAction"
               class="org.jetbrains.plugins.clojure.repl.actions.LoadClojureFileInConsoleAction"
               text="Load file to REPL">
-        <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift L"/>
+        <keyboard-shortcut keymap="$default" first-keystroke="alt X" second-keystroke="L"/>
       </action>
 
       <action id="org.jetbrains.plugins.clojure.repl.actions.RunSelectedTextAction"
               class="org.jetbrains.plugins.clojure.repl.actions.RunSelectedTextAction"
               text="Run selected text in REPL">
-        <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift K"/>
+        <keyboard-shortcut keymap="$default" first-keystroke="alt X" second-keystroke="X"/>
       </action>
 
       <action id="org.jetbrains.plugins.clojure.repl.actions.RunLastSExprAction"
               class="org.jetbrains.plugins.clojure.repl.actions.RunLastSExprAction"
               text="Execute last S-expression in REPL">
-        <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift H"/>
+        <keyboard-shortcut keymap="$default" first-keystroke="alt X" second-keystroke="Z"/>
       </action>
 
       <action id="org.jetbrains.plugins.clojure.repl.actions.RunTopSExprAction"
               class="org.jetbrains.plugins.clojure.repl.actions.RunTopSExprAction"
               text="Run Top S-expression in REPL">
-        <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift G"/>
+        <keyboard-shortcut keymap="$default" first-keystroke="alt X" second-keystroke="D"/>
       </action>
 
       <action id="org.jetbrains.plugins.clojure.repl.actions.SwitchNamespaceClojureFileInConsoleAction"
               class="org.jetbrains.plugins.clojure.repl.actions.SwitchNamespaceClojureFileInConsoleAction"
               text="Switch to file's namespace in REPL">
+        <keyboard-shortcut keymap="$default" first-keystroke="alt X" second-keystroke="N"/>
       </action>
 
       <add-to-group group-id="ToolsMenu" anchor="last"/>
@@ -203,19 +204,32 @@
       <action id="org.jetbrains.plugins.clojure.actions.editor.SlurpBackwardsAction"
               class="org.jetbrains.plugins.clojure.actions.editor.SlurpBackwardsAction"
               text="Slurp Backwards" description="Swallow the element preceeding the current s-expression">
-        <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt shift 9"/>
+        <keyboard-shortcut keymap="$default" first-keystroke="control alt shift 9"/>
       </action>
 
       <action id="org.jetbrains.plugins.clojure.actions.editor.SlurpForwardsAction"
               class="org.jetbrains.plugins.clojure.actions.editor.SlurpForwardsAction"
               text="Slurp Forwards" description="Swallow the element following the current s-expression">
-        <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt shift 0"/>
+        <keyboard-shortcut keymap="$default" first-keystroke="control alt shift 0"/>
       </action>
 
       <action id="org.jetbrains.plugins.clojure.actions.editor.SpliceAction"
               class="org.jetbrains.plugins.clojure.actions.editor.SpliceAction"
               text="Splice S-Expression" description="Splice the current s-expression into it’s parent">
         <keyboard-shortcut keymap="$default" first-keystroke="alt meta S"/>
+      </action>
+
+      <!-- Addition to default bindings -->
+      <action id="Clojure.Editor.SelectWord"
+              class="com.intellij.openapi.editor.actions.SelectWordAtCaretAction"
+              text="Expand selection">
+        <keyboard-shortcut keymap="$default" first-keystroke="control alt UP"/>
+      </action>
+
+      <action id="Clojure.Editor.UnSelectWord"
+              class="com.intellij.openapi.editor.actions.UnselectWordAtCaretAction"
+              text="Shrink selection">
+        <keyboard-shortcut keymap="$default" first-keystroke="control alt DOWN"/>
       </action>
 
       <add-to-group group-id="EditMenu" anchor="last"/>
@@ -227,7 +241,7 @@
             description="Runs Clojure REPL">
       <add-to-group group-id="ToolsMenu" anchor="last"/>
       <add-to-group group-id="RunContextPopupGroup" anchor="last"/>
-      <keyboard-shortcut first-keystroke="control shift D" keymap="$default"/>
+      <keyboard-shortcut first-keystroke="alt X" second-keystroke="C" keymap="$default"/>
     </action>
 
     <action id="Clojure.Console.Execute"
@@ -241,8 +255,5 @@
             text="Execute Current Clojure Statement">
       <keyboard-shortcut keymap="$default" first-keystroke="shift ENTER"/>
     </action>
-
   </actions>
-
-
 </idea-plugin>
