@@ -13,40 +13,40 @@ import static org.jetbrains.plugins.clojure.config.util.ClojureMavenLibraryUtil.
 public enum ClojureVersion {
 
   Clojure_1_0("1.0", new LibraryInfo[]{
-      createJarDownloadInfo(true, "clojure.jar", "", ClojureUtils.CLOJURE_MAIN),
-      createJarDownloadInfo(true, "clojure-contrib.jar", ""),
+      createJarDownloadInfo("clojure.jar", "", ClojureUtils.CLOJURE_MAIN),
+      createJarDownloadInfo("clojure-contrib.jar", ""),
   }),
 
   Clojure_1_1_0("1.1.0", new LibraryInfo[]{
-      createJarDownloadInfo(true, "clojure.jar", "1.1.0", ClojureUtils.CLOJURE_MAIN),
+      createJarDownloadInfo("clojure.jar", "1.1.0", ClojureUtils.CLOJURE_MAIN),
   }),
 
   Clojure_1_2("1.2", new LibraryInfo[]{
-      createJarDownloadInfo(true, "clojure.jar", "1.2", ClojureUtils.CLOJURE_MAIN),
+      createJarDownloadInfo("clojure.jar", "1.2", ClojureUtils.CLOJURE_MAIN),
   }),
 
   Clojure_1_3("1.3.0", new LibraryInfo[]{
-      createJarDownloadInfo(false, "clojure.jar", "1.3.0", ClojureUtils.CLOJURE_MAIN),
+      createJarDownloadInfo("clojure.jar", "1.3.0", ClojureUtils.CLOJURE_MAIN),
   }),
 
   Clojure_1_4("1.4.0", new LibraryInfo[]{
-      createJarDownloadInfo(false, "clojure.jar", "1.4.0", ClojureUtils.CLOJURE_MAIN),
+      createJarDownloadInfo("clojure.jar", "1.4.0", ClojureUtils.CLOJURE_MAIN),
   }),
 
   Clojure_1_5_0("1.5.0", new LibraryInfo[]{
-      createJarDownloadInfo(false, "clojure.jar", "1.5.0", ClojureUtils.CLOJURE_MAIN),
+      createJarDownloadInfo("clojure.jar", "1.5.0", ClojureUtils.CLOJURE_MAIN),
   }),
 
   Clojure_1_5_1("1.5.1", new LibraryInfo[]{
-      createJarDownloadInfo(false, "clojure.jar", "1.5.1", ClojureUtils.CLOJURE_MAIN),
+      createJarDownloadInfo("clojure.jar", "1.5.1", ClojureUtils.CLOJURE_MAIN),
   }),
 
   Clojure_1_6_0("1.6.0", new LibraryInfo[]{
-      createJarDownloadInfo(false, "clojure.jar", "1.6.0", ClojureUtils.CLOJURE_MAIN),
+      createJarDownloadInfo("clojure.jar", "1.6.0", ClojureUtils.CLOJURE_MAIN),
   }),
 
   Clojure_1_8_0("1.8.0", new LibraryInfo[]{
-      createJarDownloadInfo(false, "clojure.jar", "1.8.0", ClojureUtils.CLOJURE_MAIN),
+      createJarDownloadInfo("clojure.jar", "1.8.0", ClojureUtils.CLOJURE_MAIN),
   });
 
   private final String myName;
