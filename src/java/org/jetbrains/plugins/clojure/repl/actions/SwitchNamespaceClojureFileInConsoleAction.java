@@ -18,21 +18,20 @@ public class SwitchNamespaceClojureFileInConsoleAction extends ClojureConsoleAct
   @Override
   public void actionPerformed(AnActionEvent event) {
     Editor editor = event.getData(DataKeys.EDITOR);
-    if (editor == null) { return; }
-
+    if (editor == null)
+      return;
     Project project = editor.getProject();
-    if (project == null) { return; }
-
-    VirtualFile vfile = FileDocumentManager.getInstance().getFile(editor.getDocument());
-
-    if (vfile == null) return;
-
-    PsiFile psiFile = PsiManager.getInstance(project).findFile(vfile);
-    if (psiFile == null || !(psiFile instanceof ClojureFile)) { return; }
-
+    if (project == null)
+      return;
+    VirtualFile vFile = FileDocumentManager.getInstance().getFile(editor.getDocument());
+    if (vFile == null)
+      return;
+    PsiFile psiFile = PsiManager.getInstance(project).findFile(vFile);
+    if (psiFile == null || !(psiFile instanceof ClojureFile))
+      return;
     final String namespace = ((ClojureFile) psiFile).getNamespace();
-    if (namespace == null) return;
-    final String command = "(in-ns " + namespace + ")";
-    executeCommand(project, command);
+    if (namespace == null)
+      return;
+    executeCommand(project, "(in-ns " + namespace + ")");
   }
 }
