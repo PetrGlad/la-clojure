@@ -32,6 +32,6 @@ public class SwitchNamespaceClojureFileInConsoleAction extends ClojureConsoleAct
     final String namespace = ((ClojureFile) psiFile).getNamespace();
     if (namespace == null)
       return;
-    executeCommand(project, "(in-ns " + namespace + ")");
+    executeCommand(project, "(in-ns '" + namespace + ")");
   }
 }
