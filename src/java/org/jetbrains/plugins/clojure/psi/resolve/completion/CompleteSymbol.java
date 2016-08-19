@@ -81,7 +81,7 @@ public class CompleteSymbol {
   }
 
   private static void addJavaMethods(PsiElement[] psiElements, Collection<Object> variants, boolean withoutDot) {
-    final HashMap<MethodSignature, HashSet<PsiMethod>> sig2Methods = collectAvailableMethods(psiElements);
+    final Map<MethodSignature, HashSet<PsiMethod>> sig2Methods = collectAvailableMethods(psiElements);
 
     for (Map.Entry<MethodSignature, HashSet<PsiMethod>> entry : sig2Methods.entrySet()) {
       final MethodSignature sig = entry.getKey();
@@ -109,7 +109,7 @@ public class CompleteSymbol {
       }
       tailBuffer.append(StringUtil.join(list, ", "));
 
-      final LookupItem item = new LookupItem(methodText, (!withoutDot ? "." : "") + name);
+      final LookupItem item = new LookupItem(methodText, (withoutDot ? "" : ".") + name);
       item.setIcon(ClojureIcons.JAVA_METHOD);
       item.setTailText(tailBuffer.toString(), true);
 
