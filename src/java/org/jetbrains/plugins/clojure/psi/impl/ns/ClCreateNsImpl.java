@@ -1,9 +1,9 @@
 package org.jetbrains.plugins.clojure.psi.impl.ns;
 
-import org.jetbrains.plugins.clojure.psi.stubs.api.ClNsStub;
-import org.jetbrains.annotations.NotNull;
-import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.stubs.IStubElementType;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.plugins.clojure.psi.stubs.api.ClNsStub;
 
 /**
  * @author ilyas

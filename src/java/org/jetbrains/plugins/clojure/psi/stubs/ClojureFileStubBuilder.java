@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.clojure.psi.stubs;
 
+import com.intellij.psi.PsiFile;
 import com.intellij.psi.stubs.DefaultStubBuilder;
 import com.intellij.psi.stubs.StubElement;
-import com.intellij.psi.PsiFile;
 import org.jetbrains.plugins.clojure.psi.api.ClojureFile;
 import org.jetbrains.plugins.clojure.psi.stubs.impl.ClFileStubImpl;
 

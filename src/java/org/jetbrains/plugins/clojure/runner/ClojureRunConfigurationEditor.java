@@ -11,8 +11,8 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.FieldPanel;
 import com.intellij.ui.RawCommandLineEditor;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.plugins.clojure.file.ClojureFileType;
 import org.jetbrains.plugins.clojure.ClojureBundle;
+import org.jetbrains.plugins.clojure.file.ClojureFileType;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;

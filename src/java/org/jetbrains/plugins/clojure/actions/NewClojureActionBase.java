@@ -18,11 +18,11 @@ import com.intellij.psi.*;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.plugins.clojure.utils.ClojureUtils;
-import org.jetbrains.plugins.clojure.utils.ClojureNamesUtil;
 import org.jetbrains.plugins.clojure.ClojureBundle;
-import org.jetbrains.plugins.clojure.config.ClojureFacetType;
 import org.jetbrains.plugins.clojure.config.ClojureFacet;
+import org.jetbrains.plugins.clojure.config.ClojureFacetType;
+import org.jetbrains.plugins.clojure.utils.ClojureNamesUtil;
+import org.jetbrains.plugins.clojure.utils.ClojureUtils;
 
 import javax.swing.*;
 

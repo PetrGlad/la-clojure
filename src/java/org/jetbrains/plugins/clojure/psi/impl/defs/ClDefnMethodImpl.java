@@ -1,15 +1,15 @@
 package org.jetbrains.plugins.clojure.psi.impl.defs;
 
 import com.intellij.lang.ASTNode;
-import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.navigation.ItemPresentation;
-import com.intellij.openapi.util.Iconable;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
-import org.jetbrains.plugins.clojure.psi.api.defs.ClDefMethod;
-import org.jetbrains.plugins.clojure.psi.stubs.api.ClDefStub;
-import org.jetbrains.plugins.clojure.ClojureIcons;
+import com.intellij.openapi.util.Iconable;
+import com.intellij.psi.stubs.IStubElementType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.plugins.clojure.ClojureIcons;
+import org.jetbrains.plugins.clojure.psi.api.defs.ClDefMethod;
+import org.jetbrains.plugins.clojure.psi.stubs.api.ClDefStub;
 
 import javax.swing.*;
 

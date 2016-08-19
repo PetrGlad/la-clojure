@@ -7,12 +7,13 @@ import com.intellij.openapi.editor.Document;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
 import org.jetbrains.plugins.clojure.parser.ClojureElementTypes;
-import static org.jetbrains.plugins.clojure.parser.ClojureElementTypes.*;
 import org.jetbrains.plugins.clojure.psi.api.ClList;
 import org.jetbrains.plugins.clojure.psi.api.ClojureFile;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.jetbrains.plugins.clojure.parser.ClojureElementTypes.*;
 
 /**
  * Created by IntelliJ IDEA.

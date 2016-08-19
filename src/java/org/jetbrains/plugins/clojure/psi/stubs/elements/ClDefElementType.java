@@ -1,18 +1,18 @@
 package org.jetbrains.plugins.clojure.psi.stubs.elements;
 
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.stubs.IndexSink;
+import com.intellij.psi.stubs.StubElement;
+import com.intellij.psi.stubs.StubInputStream;
+import com.intellij.psi.stubs.StubOutputStream;
+import com.intellij.util.io.StringRef;
+import org.jetbrains.plugins.clojure.parser.ClojureElementTypes;
 import org.jetbrains.plugins.clojure.psi.ClStubElementType;
-import org.jetbrains.plugins.clojure.psi.impl.defs.ClDefImpl;
 import org.jetbrains.plugins.clojure.psi.api.defs.ClDef;
+import org.jetbrains.plugins.clojure.psi.impl.defs.ClDefImpl;
 import org.jetbrains.plugins.clojure.psi.stubs.api.ClDefStub;
 import org.jetbrains.plugins.clojure.psi.stubs.index.ClDefNameIndex;
-import org.jetbrains.plugins.clojure.parser.ClojureElementTypes;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.stubs.StubElement;
-import com.intellij.psi.stubs.StubOutputStream;
-import com.intellij.psi.stubs.StubInputStream;
-import com.intellij.psi.stubs.IndexSink;
-import com.intellij.lang.ASTNode;
-import com.intellij.util.io.StringRef;
 
 import java.io.IOException;
 

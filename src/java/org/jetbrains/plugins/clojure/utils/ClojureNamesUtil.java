@@ -1,9 +1,9 @@
 package org.jetbrains.plugins.clojure.utils;
 
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.lexer.Lexer;
-import org.jetbrains.plugins.clojure.lexer.ClojureTokenTypes;
+import com.intellij.openapi.application.ApplicationManager;
 import org.jetbrains.plugins.clojure.lexer.ClojureFlexLexer;
+import org.jetbrains.plugins.clojure.lexer.ClojureTokenTypes;
 
 /**
  * @author ilyas

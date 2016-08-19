@@ -1,7 +1,6 @@
 package org.jetbrains.plugins.clojure.psi.resolve.processors;
 
 import com.intellij.openapi.util.Key;
-import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiNamedElement;
 import com.intellij.psi.ResolveState;

@@ -3,15 +3,14 @@ package org.jetbrains.plugins.clojure.gotoclass;
 import com.intellij.navigation.ChooseByNameContributor;
 import com.intellij.navigation.NavigationItem;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.stubs.StubIndex;
 import com.intellij.psi.search.GlobalSearchScope;
+import com.intellij.psi.stubs.StubIndex;
+import org.jetbrains.plugins.clojure.psi.stubs.index.ClDefNameIndex;
 
-import java.util.Set;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.ArrayList;
-
-import org.jetbrains.plugins.clojure.psi.stubs.index.ClDefNameIndex;
+import java.util.Set;
 
 /**
  * @author ilyas

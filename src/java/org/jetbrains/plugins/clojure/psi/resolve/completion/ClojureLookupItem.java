@@ -1,6 +1,5 @@
 package org.jetbrains.plugins.clojure.psi.resolve.completion;
 
-import com.intellij.codeInsight.TailType;
 import com.intellij.codeInsight.completion.InsertionContext;
 import com.intellij.codeInsight.completion.JavaPsiClassReferenceElement;
 import com.intellij.codeInsight.lookup.LookupElementPresentation;

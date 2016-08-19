@@ -1,11 +1,11 @@
 package org.jetbrains.plugins.clojure.psi.stubs.elements.ns;
 
+import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.psi.stubs.IndexSink;
 import com.intellij.psi.stubs.StubElement;
 import com.intellij.psi.stubs.StubInputStream;
 import com.intellij.psi.stubs.StubOutputStream;
 import com.intellij.util.io.StringRef;
-import com.intellij.openapi.util.text.StringUtil;
 import org.jetbrains.plugins.clojure.psi.ClStubElementType;
 import org.jetbrains.plugins.clojure.psi.api.ns.ClNs;
 import org.jetbrains.plugins.clojure.psi.stubs.api.ClNsStub;

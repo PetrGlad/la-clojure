@@ -1,17 +1,17 @@
 package org.jetbrains.plugins.clojure.psi;
 
+import com.intellij.extapi.psi.StubBasedPsiElementBase;
+import com.intellij.lang.ASTNode;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Condition;
+import com.intellij.psi.PsiComment;
 import com.intellij.psi.PsiDocumentManager;
-import com.intellij.psi.stubs.StubElement;
-import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiWhiteSpace;
-import com.intellij.psi.PsiComment;
 import com.intellij.psi.impl.source.tree.LeafPsiElement;
-import com.intellij.extapi.psi.StubBasedPsiElementBase;
-import com.intellij.lang.ASTNode;
+import com.intellij.psi.stubs.IStubElementType;
+import com.intellij.psi.stubs.StubElement;
 import com.intellij.util.Function;
 import com.intellij.util.containers.ContainerUtil;
 import org.jetbrains.annotations.NotNull;

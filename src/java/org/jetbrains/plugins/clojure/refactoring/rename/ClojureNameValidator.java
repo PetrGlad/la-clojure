@@ -1,6 +1,5 @@
 package org.jetbrains.plugins.clojure.refactoring.rename;
 
-import com.intellij.codeInsight.completion.CompletionContributor;
 import com.intellij.lang.LanguageExtensionPoint;
 import com.intellij.lang.refactoring.NamesValidator;
 import com.intellij.openapi.project.Project;

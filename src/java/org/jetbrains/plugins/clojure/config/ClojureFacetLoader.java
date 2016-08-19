@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.clojure.config;
 
-import com.intellij.openapi.components.ApplicationComponent;
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.facet.FacetTypeRegistry;
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.components.ApplicationComponent;
 import org.jetbrains.annotations.NotNull;
 
 /**

@@ -1,10 +1,10 @@
 package org.jetbrains.plugins.clojure.structure;
 
-import com.intellij.ide.structureView.TextEditorBasedStructureViewModel;
 import com.intellij.ide.structureView.StructureViewTreeElement;
+import com.intellij.ide.structureView.TextEditorBasedStructureViewModel;
+import com.intellij.ide.util.treeView.smartTree.Filter;
 import com.intellij.ide.util.treeView.smartTree.Grouper;
 import com.intellij.ide.util.treeView.smartTree.Sorter;
-import com.intellij.ide.util.treeView.smartTree.Filter;
 import com.intellij.psi.PsiFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.clojure.psi.api.defs.ClDef;

@@ -3,18 +3,17 @@ package org.jetbrains.plugins.clojure.gotoclass;
 import com.intellij.navigation.ChooseByNameContributor;
 import com.intellij.navigation.NavigationItem;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.stubs.StubIndex;
-import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.PsiClass;
-import com.intellij.util.containers.ContainerUtil;
+import com.intellij.psi.search.GlobalSearchScope;
+import com.intellij.psi.stubs.StubIndex;
 import com.intellij.util.Function;
+import com.intellij.util.containers.ContainerUtil;
+import org.jetbrains.plugins.clojure.compiler.ClojureCompilerSettings;
+import org.jetbrains.plugins.clojure.psi.api.ClojureFile;
+import org.jetbrains.plugins.clojure.psi.stubs.index.ClojureClassNameIndex;
 
 import java.util.Collection;
 import java.util.List;
-
-import org.jetbrains.plugins.clojure.psi.stubs.index.ClojureClassNameIndex;
-import org.jetbrains.plugins.clojure.psi.api.ClojureFile;
-import org.jetbrains.plugins.clojure.compiler.ClojureCompilerSettings;
 
 /**
  * @author ilyas

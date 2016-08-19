@@ -1,14 +1,13 @@
 package org.jetbrains.plugins.clojure.psi.stubs.index;
 
+import com.intellij.openapi.project.Project;
+import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.stubs.IntStubIndexExtension;
 import com.intellij.psi.stubs.StubIndexKey;
-import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.openapi.project.Project;
-
-import java.util.Collection;
-
 import org.jetbrains.plugins.clojure.psi.api.ClojureFile;
 import org.jetbrains.plugins.clojure.psi.impl.search.ClojureSourceFilterScope;
+
+import java.util.Collection;
 
 /**
  * @author ilyas

@@ -1,8 +1,8 @@
 package org.jetbrains.plugins.clojure.psi.api;
 
-import org.jetbrains.plugins.clojure.psi.api.symbols.ClSymbol;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.psi.PsiElement;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.plugins.clojure.psi.api.symbols.ClSymbol;
 
 /**
  * @author ilyas
