@@ -56,9 +56,7 @@ public abstract class ClojureConsoleActionBase extends AnAction {
     languageConsole.setInputText(command);
 
     final Editor editor = languageConsole.getCurrentEditor();
-    final CaretModel caretModel = editor.getCaretModel();
-    caretModel.moveToOffset(command.length());
-
+    editor.getCaretModel().moveToOffset(command.length());
 
     LOG.assertTrue(languageConsole instanceof ClojureConsole);
 
@@ -80,11 +78,11 @@ public abstract class ClojureConsoleActionBase extends AnAction {
     final Presentation presentation = e.getPresentation();
 
     final Editor editor = e.getData(DataKeys.EDITOR);
-
     if (editor == null) {
       presentation.setEnabled(false);
       return;
     }
+
     final Project project = editor.getProject();
     if (project == null) {
       presentation.setEnabled(false);
@@ -120,14 +118,10 @@ public abstract class ClojureConsoleActionBase extends AnAction {
       presentation.setEnabled(false);
       return;
     }
-
     presentation.setEnabled(true);
-
   }
 
   protected static void showError(String msg) {
     Messages.showErrorDialog(msg, ClojureBundle.message("clojure.repl.actions.load.text.title"));
   }
-
-
 }

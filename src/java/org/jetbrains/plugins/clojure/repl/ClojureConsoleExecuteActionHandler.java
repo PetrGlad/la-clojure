@@ -48,7 +48,7 @@ public class ClojureConsoleExecuteActionHandler {
       byte[] bytes = (line + "\n").getBytes("UTF-8");
       outputStream.write(bytes);
       outputStream.flush();
-    } catch (IOException e) {
+    } catch (IOException _e) {
       // ignore
     }
   }
