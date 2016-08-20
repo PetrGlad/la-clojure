@@ -6,6 +6,7 @@ import com.intellij.execution.configurations.CommandLineBuilder;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.execution.configurations.JavaParameters;
 import com.intellij.execution.console.ConsoleHistoryController;
+import com.intellij.execution.console.ConsoleRootType;
 import com.intellij.execution.executors.DefaultRunExecutor;
 import com.intellij.execution.process.*;
 import com.intellij.execution.ui.RunContentDescriptor;
@@ -69,7 +70,7 @@ public class ClojureConsoleRunner {
 
   private ClojureConsoleExecuteActionHandler myConsoleExecuteActionHandler;
   private AnAction myRunAction;
-
+  private final ConsoleRootType consoleType = new ConsoleRootType("clojure", "Clojure REPL") { };
 
   public ClojureConsoleRunner(@NotNull Module module,
                               @NotNull String consoleTitle,
@@ -120,7 +121,7 @@ public class ClojureConsoleRunner {
     final Process process = createProcess(myProvider);
     // !!! do not change order!!!
     myConsoleView = createConsoleView(module);
-    myHistory = new ConsoleHistoryController("clojure", null, myConsoleView);
+    myHistory = new ConsoleHistoryController(consoleType, null, myConsoleView);
     myConsoleView.setHistoryController(myHistory);
     myProcessHandler = new ClojureConsoleProcessHandler(process, myProvider.getCommandLineString(), getConsoleView());
     myConsoleExecuteActionHandler = new ClojureConsoleExecuteActionHandler(getProcessHandler(), getProject(), false);

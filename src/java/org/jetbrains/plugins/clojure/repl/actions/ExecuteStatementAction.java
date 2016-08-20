@@ -2,9 +2,11 @@ package org.jetbrains.plugins.clojure.repl.actions;
 
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.actionSystem.Presentation;
+import com.intellij.openapi.editor.Caret;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.actionSystem.EditorAction;
 import com.intellij.openapi.editor.actionSystem.EditorWriteActionHandler;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author ilyas
@@ -18,12 +20,11 @@ public class ExecuteStatementAction extends EditorAction {
   }
 
   private static class MyHandler extends EditorWriteActionHandler {
-    public boolean isEnabled(Editor editor, DataContext dataContext) {
+    public boolean isEnabledForCaret(@NotNull Editor editor, @NotNull Caret caret, DataContext dataContext) {
       return false;
     }
 
-    public void executeWriteAction(Editor editor, DataContext dataContext) {
-      // do nothing
+    public void executeWriteAction(Editor editor, Caret caret, DataContext dataContext) {
     }
   }
 
