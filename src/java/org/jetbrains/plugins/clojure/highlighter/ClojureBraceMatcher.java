@@ -34,13 +34,7 @@ public class ClojureBraceMatcher implements PairedBraceMatcher {
   }
 
   public boolean isPairedBracesAllowedBeforeType(@NotNull final IElementType lbraceType, @Nullable final IElementType tokenType) {
-    return tokenType == null
-        || ClojureTokenTypes.WHITESPACE_SET.contains(tokenType)
-        || ClojureTokenTypes.COMMENTS.contains(tokenType)
-        || tokenType == ClojureTokenTypes.COMMA
-        || tokenType == ClojureTokenTypes.RIGHT_SQUARE
-        || tokenType == ClojureTokenTypes.RIGHT_PAREN
-        || tokenType == ClojureTokenTypes.RIGHT_CURLY;
+    return true;
   }
 
   public int getCodeConstructStart(PsiFile file, int openingBraceOffset) {
