@@ -47,7 +47,7 @@ public class ClojureParserDefinition implements ParserDefinition {
 
   @NotNull
   public TokenSet getWhitespaceTokens() {
-    return ClojureTokenTypes.WHITESPACE_SET;
+    return ClojureTokenTypes.WHITESPACES;
   }
 
   @NotNull

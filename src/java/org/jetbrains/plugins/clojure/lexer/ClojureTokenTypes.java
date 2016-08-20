@@ -81,7 +81,7 @@ public interface ClojureTokenTypes {
 
 
   // Useful token sets
-  TokenSet WHITESPACE_SET = TokenSet.create(EOL, EOF, WHITESPACE, COMMA);
+  TokenSet WHITESPACES = TokenSet.create(EOL, EOF, WHITESPACE, COMMA);
   TokenSet symS = TokenSet.create(symATOM,  symDOT, symNS_SEP, symIMPLICIT_ARG);
   TokenSet ATOMS = TokenSet.create(symATOM,  symDOT, symNS_SEP);
   TokenSet SEPARATORS = TokenSet.create(symDOT, symNS_SEP);
