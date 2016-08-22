@@ -19,7 +19,6 @@ import com.intellij.psi.util.MethodSignature;
 import com.intellij.util.Function;
 import com.intellij.util.IncorrectOperationException;
 import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.containers.HashMap;
 import com.intellij.util.containers.HashSet;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -50,6 +49,8 @@ import org.jetbrains.plugins.clojure.psi.util.ClojurePsiFactory;
 import javax.swing.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author ilyas
@@ -199,7 +200,7 @@ public class ClSymbolImpl extends ClojurePsiElementImpl implements ClSymbol {
 
       final String originalName = StringUtil.trimStart(name, ".");
       final PsiElement[] elements = ResolveUtil.mapToElements(processor.getCandidates());
-      final HashMap<MethodSignature, HashSet<PsiMethod>> sig2Method = CompleteSymbol.collectAvailableMethods(elements);
+      final Map<MethodSignature, Set<PsiMethod>> sig2Method = CompleteSymbol.collectAvailableMethods(elements);
       final List<MethodSignature> goodSignatures = ContainerUtil.findAll(sig2Method.keySet(), new Condition<MethodSignature>() {
         public boolean value(MethodSignature methodSignature) {
           return forCompletion || originalName.equals(methodSignature.getName());
@@ -208,7 +209,7 @@ public class ClSymbolImpl extends ClojurePsiElementImpl implements ClSymbol {
 
       final HashSet<ClojureResolveResult> results = new HashSet<ClojureResolveResult>();
       for (MethodSignature signature : goodSignatures) {
-        final HashSet<PsiMethod> methodSet = sig2Method.get(signature);
+        final Set<PsiMethod> methodSet = sig2Method.get(signature);
         for (PsiMethod method : methodSet) {
           results.add(new ClojureResolveResultImpl(method, true));
         }

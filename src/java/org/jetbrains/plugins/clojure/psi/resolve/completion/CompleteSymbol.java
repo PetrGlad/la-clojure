@@ -14,10 +14,7 @@ import org.jetbrains.plugins.clojure.psi.impl.ns.ClSyntheticNamespace;
 import org.jetbrains.plugins.clojure.psi.resolve.ClojureResolveResult;
 import org.jetbrains.plugins.clojure.psi.resolve.ResolveUtil;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author ilyas
@@ -61,7 +58,7 @@ public class CompleteSymbol {
     // Add Java methods for all imported classes
     final boolean withoutDot = mayBeMethodReference(symbol);
     if (symbol.getChildren().length == 0 && symbol.getText().startsWith(".") ||
-            withoutDot) {
+        withoutDot) {
       addJavaMethods(psiElements.toArray(new PsiElement[psiElements.size()]), variants, withoutDot);
     }
 
@@ -81,19 +78,19 @@ public class CompleteSymbol {
   }
 
   private static void addJavaMethods(PsiElement[] psiElements, Collection<Object> variants, boolean withoutDot) {
-    final Map<MethodSignature, HashSet<PsiMethod>> sig2Methods = collectAvailableMethods(psiElements);
+    final Map<MethodSignature, Set<PsiMethod>> sig2Methods = collectAvailableMethods(psiElements);
 
-    for (Map.Entry<MethodSignature, HashSet<PsiMethod>> entry : sig2Methods.entrySet()) {
+    for (Map.Entry<MethodSignature, Set<PsiMethod>> entry : sig2Methods.entrySet()) {
       final MethodSignature sig = entry.getKey();
       final String name = sig.getName();
 
       final StringBuffer buffer = new StringBuffer();
       buffer.append(name).append("(");
       buffer.append(StringUtil.join(ContainerUtil.map2Array(sig.getParameterTypes(), String.class, new Function<PsiType, String>() {
-        public String fun(PsiType psiType) {
-          return psiType.getPresentableText();
-        }
-      }), ", ")
+            public String fun(PsiType psiType) {
+              return psiType.getPresentableText();
+            }
+          }), ", ")
       ).append(")");
 
       final String methodText = buffer.toString();
@@ -117,17 +114,17 @@ public class CompleteSymbol {
     }
   }
 
-  public static HashMap<MethodSignature, HashSet<PsiMethod>> collectAvailableMethods(PsiElement[] psiElements) {
-    final HashMap<MethodSignature, HashSet<PsiMethod>> sig2Methods = new HashMap<MethodSignature, HashSet<PsiMethod>>();
+  public static Map<MethodSignature, Set<PsiMethod>> collectAvailableMethods(PsiElement[] psiElements) {
+    final Map<MethodSignature, Set<PsiMethod>> sig2Methods = new HashMap<MethodSignature, Set<PsiMethod>>();
     for (PsiElement element : psiElements) {
       if (element instanceof PsiClass) {
         PsiClass clazz = (PsiClass) element;
         for (PsiMethod method : clazz.getAllMethods()) {
           if (!method.isConstructor() && method.hasModifierProperty(PsiModifier.PUBLIC)) {
             final MethodSignature sig = method.getSignature(PsiSubstitutor.EMPTY);
-            final HashSet<PsiMethod> set = sig2Methods.get(sig);
+            final Set<PsiMethod> set = sig2Methods.get(sig);
             if (set == null) {
-              final HashSet<PsiMethod> newSet = new HashSet<PsiMethod>();
+              final Set<PsiMethod> newSet = new HashSet<PsiMethod>();
               newSet.add(method);
               sig2Methods.put(sig, newSet);
             } else {
