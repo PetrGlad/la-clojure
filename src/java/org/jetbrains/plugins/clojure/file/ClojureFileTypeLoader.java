@@ -21,5 +21,6 @@ import org.jetbrains.annotations.NotNull;
 public class ClojureFileTypeLoader extends FileTypeFactory {
   public void createFileTypes(@NotNull FileTypeConsumer consumer) {
     consumer.consume(ClojureFileType.CLOJURE_FILE_TYPE, ClojureFileType.CLOJURE_DEFAULT_EXTENSION);
+    consumer.consume(ClojureFileType.CLOJURE_FILE_TYPE, ClojureFileType.CLOJURE_CONDITIONAL_EXTENSION);
   }
 }
