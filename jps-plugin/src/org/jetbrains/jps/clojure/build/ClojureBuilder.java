@@ -128,7 +128,7 @@ public class ClojureBuilder extends ModuleLevelBuilder {
 
     BaseOSProcessHandler handler = new BaseOSProcessHandler(process, null, null) {
       @Override
-      protected Future<?> executeOnPooledThread(Runnable task) {
+      protected Future<?> executeOnPooledThread(@NotNull Runnable task) {
         return SharedThreadPool.getInstance().executeOnPooledThread(task);
       }
     };
