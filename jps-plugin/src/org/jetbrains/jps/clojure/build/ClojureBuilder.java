@@ -65,15 +65,15 @@ public class ClojureBuilder extends ModuleLevelBuilder {
     if (!myBeforeJava && extension != null && extension.isClojureBefore()) return ExitCode.NOTHING_DONE;
     if (extension != null && !extension.isCompileClojure()) return ExitCode.NOTHING_DONE;
 
-    final LinkedHashSet<JpsModule> javaModules = new LinkedHashSet<JpsModule>();
+    final Set<JpsModule> javaModules = new LinkedHashSet<>();
     for (JpsModule module : chunk.getModules()) {
       if (module.getModuleType().equals(JpsJavaModuleType.INSTANCE)) {
         javaModules.add(module);
       }
     }
 
-    final List<File> toCompile = new ArrayList<File>();
-    final HashMap<File, String> toCompileNamespace = new HashMap<File, String>();
+    final List<File> toCompile = new ArrayList<>();
+    final Map<File, String> toCompileNamespace = new HashMap<>();
     dirtyFilesHolder.processDirtyFiles(new FileProcessor<JavaSourceRootDescriptor, ModuleBuildTarget>() {
       public boolean apply(ModuleBuildTarget target, File file, JavaSourceRootDescriptor sourceRoot) throws IOException {
         if (javaModules.contains(target.getModule()) && file.getName().endsWith(".clj")) {
@@ -102,7 +102,7 @@ public class ClojureBuilder extends ModuleLevelBuilder {
 
     String javaExecutable = JpsJavaSdkType.getJavaExecutable(sdk);
 
-    List<String> classpath = new ArrayList<String>();
+    List<String> classpath = new ArrayList<>();
     for (File root : JpsJavaExtensionService.getInstance().enumerateDependencies(javaModules).classes().getRoots()) {
       classpath.add(root.getAbsolutePath());
     }
@@ -112,9 +112,9 @@ public class ClojureBuilder extends ModuleLevelBuilder {
       }
     }
 
-    List<String> vmParams = new ArrayList<String>();
+    List<String> vmParams = new ArrayList<>();
 //    vmParams.add("-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5239");
-    List<String> programParams = new ArrayList<String>();
+    List<String> programParams = new ArrayList<>();
     File outputDir = chunk.representativeTarget().getOutputDir();
     outputDir.mkdirs();
     
@@ -135,7 +135,7 @@ public class ClojureBuilder extends ModuleLevelBuilder {
 
     final SourceToOutputMapping sourceToOutputMap = context.getProjectDescriptor().dataManager.getSourceToOutputMap(chunk.representativeTarget());
 
-    final HashSet<String> outputs = new HashSet<String>();
+    final Set<String> outputs = new HashSet<>();
 
     handler.addProcessListener(new ProcessAdapter() {
       @Override
@@ -205,10 +205,10 @@ public class ClojureBuilder extends ModuleLevelBuilder {
   }
 
   private static boolean hasGenClass(File file) throws IOException {
-    return new String(FileUtilRt.loadFileText(file)).contains("gen-class");
+    return new String(FileUtilRt.loadFileText(file)).contains("gen-class"); // XXX Unreliable, can occur outside of ns form
   }
 
-  private void fillFileWithClojureCompilerParams(List<File> toCompile, HashMap<File, String> toCompileNamespace,
+  private void fillFileWithClojureCompilerParams(List<File> toCompile, Map<File, String> toCompileNamespace,
                                                  File fileWithCompileScript, File outputDir) throws FileNotFoundException {
     PrintStream printer = new PrintStream(new FileOutputStream(fileWithCompileScript));
 
