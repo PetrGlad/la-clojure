@@ -43,12 +43,14 @@ public class ClojureConsoleExecuteActionHandler {
   public void processLine(String line) {
     //final Charset charset = myProcessHandler.getCharset();
     final OutputStream outputStream = myProcessHandler.getProcessInput();
+    if (outputStream == null)
+      return; // TODO Warn user that command was not processed.
     try {
       //byte[] bytes = (line + "\n").getBytes(charset.name());
       byte[] bytes = (line + "\n").getBytes("UTF-8");
       outputStream.write(bytes);
       outputStream.flush();
-    } catch (IOException _e) {
+    } catch (IOException e) {
       // ignore
     }
   }
@@ -99,22 +101,22 @@ public class ClojureConsoleExecuteActionHandler {
     }
   }
 
-  private void execute(ClojureConsole languageConsole,
-                       ConsoleHistoryController consoleHistoryController) {
+  private void execute(final ClojureConsole languageConsole,
+                       final ConsoleHistoryController consoleHistoryController) {
 
     // Process input and add to history
     final Document document = languageConsole.getCurrentEditor().getDocument();
     String text = document.getText();
+    if (StringUtil.isEmptyOrSpaces(text)) {
+      return;
+    }
     final TextRange range = new TextRange(0, document.getTextLength());
-
     languageConsole.getCurrentEditor().getSelectionModel().setSelection(range.getStartOffset(), range.getEndOffset());
     languageConsole.addToHistory(range, languageConsole.getConsoleEditor(), myPreserveMarkup);
     languageConsole.setInputText("");
-    if (!StringUtil.isEmptyOrSpaces(text)) {
-      consoleHistoryController.addToHistory(text);
-    }
+    consoleHistoryController.addToHistory(text);
     // Send to interpreter / server
-    if (languageConsole.getNReplHost() != null) {
+    if (languageConsole.getNReplHost() != null) { // TODO (review) What do we do otherwise?
       text = "(do (use '[clojure.tools.nrepl :as repl])" +
           " (with-open [conn (repl/connect :host \"" + languageConsole.getNReplHost() +
           "\" :port " + languageConsole.getNReplPort() + ")]\n" +
