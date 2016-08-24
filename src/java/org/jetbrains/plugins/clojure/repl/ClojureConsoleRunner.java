@@ -253,11 +253,10 @@ public class ClojureConsoleRunner {
   public static ArrayList<AnAction> createConsoleExecActions(final ClojureConsole languageConsole,
                                                              final ProcessHandler processHandler,
                                                              final ClojureConsoleExecuteActionHandler consoleExecuteActionHandler,
-                                                             final ConsoleHistoryController historyModel) {
+                                                             final ConsoleHistoryController historyController) {
 
     final AnAction runImmediatelyAction = new ClojureExecuteImmediatelyAction(languageConsole, processHandler, consoleExecuteActionHandler);
 
-    final ConsoleHistoryController historyController = new ConsoleHistoryController("clojure", null, languageConsole);
     historyController.install();
 
     final AnAction upAction = historyController.getHistoryPrev();
