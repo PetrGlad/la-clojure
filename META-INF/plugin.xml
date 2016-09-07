@@ -92,7 +92,8 @@
     <projectService serviceInterface="org.jetbrains.plugins.clojure.psi.util.ClojurePsiFactory"
                     serviceImplementation="org.jetbrains.plugins.clojure.psi.util.ClojurePsiElementFactoryImpl"/>
 
-    <projectConfigurable implementation="org.jetbrains.plugins.clojure.settings.ClojureConfigurable"/>
+    <projectConfigurable instance="org.jetbrains.plugins.clojure.settings.ClojureConfigurable"
+                         groupId="language"/>
     <projectService serviceInterface="org.jetbrains.plugins.clojure.settings.ClojureProjectSettings"
                     serviceImplementation="org.jetbrains.plugins.clojure.settings.ClojureProjectSettings"/>
 
