@@ -85,6 +85,10 @@ public interface ClojureTokenTypes {
   TokenSet symS = TokenSet.create(symATOM,  symDOT, symNS_SEP, symIMPLICIT_ARG);
   TokenSet ATOMS = TokenSet.create(symATOM,  symDOT, symNS_SEP);
   TokenSet SEPARATORS = TokenSet.create(symDOT, symNS_SEP);
+  TokenSet ALL_PARENS = TokenSet.create(
+      LEFT_PAREN, RIGHT_PAREN,
+      LEFT_CURLY, RIGHT_CURLY,
+      LEFT_SQUARE, RIGHT_SQUARE);
 
   TokenSet IDENTIFIERS = TokenSet.create(symATOM);
   TokenSet KEYWORDS = TokenSet.create(NIL, TRUE, FALSE);

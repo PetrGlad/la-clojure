@@ -108,7 +108,7 @@
     <debugger.positionManagerFactory
         implementation="org.jetbrains.plugins.clojure.debugger.ClojurePositionManagerFactory"/>
 
-    <!-- XXX These settings fold any occurrenses of qualified clojure.* symbols which are not always in stack traces.
+    <!-- XXX These settings fold any occurrences of qualified clojure.* symbols which are not always in stack traces.
          This may hide meaningful output or error messages. -->
     <!--<stacktrace.fold substring=" clojure.core"/>-->
     <!--<stacktrace.fold substring=" clojure.lang"/>-->

@@ -13,15 +13,18 @@ import org.jetbrains.plugins.clojure.parser.ClojureElementTypes;
 import org.jetbrains.plugins.clojure.psi.api.ClListLike;
 import org.jetbrains.plugins.clojure.settings.ClojureProjectSettings;
 
+import static org.jetbrains.plugins.clojure.lexer.ClojureTokenTypes.ALL_PARENS;
+
 /**
  * @author ilyas
  */
 public class ClojureBraceHighlighter implements Annotator {
+
   public void annotate(@NotNull PsiElement psiElement, @NotNull AnnotationHolder annotationHolder) {
     if (psiElement instanceof LeafPsiElement &&
         ClojureProjectSettings.getInstance(psiElement.getProject()).coloredParentheses) {
       IElementType type = ((LeafPsiElement) psiElement).getElementType();
-      if (type == ClojureElementTypes.LEFT_PAREN || type == ClojureElementTypes.RIGHT_PAREN) {
+      if (ALL_PARENS.contains(type)) {
         int level = getLevel(psiElement);
         if (level >= 0) {
           final EditorColorsScheme scheme = EditorColorsManager.getInstance().getGlobalScheme();
