@@ -88,7 +88,7 @@ public class ClojureSyntaxHighlighter extends SyntaxHighlighterBase implements C
 
   static {
     TextAttributesKey.createTextAttributesKey(LINE_COMMENT_ID, DefaultLanguageHighlighterColors.LINE_COMMENT);
-    TextAttributesKey.createTextAttributesKey(KEY_ID, HighlightInfoType.STATIC_FIELD.getAttributesKey());
+    TextAttributesKey.createTextAttributesKey(KEY_ID, DefaultLanguageHighlighterColors.CONSTANT);
     TextAttributesKey.createTextAttributesKey(DEF_ID, DefaultLanguageHighlighterColors.KEYWORD);
     TextAttributesKey.createTextAttributesKey(NUMBER_ID, DefaultLanguageHighlighterColors.NUMBER);
     TextAttributesKey.createTextAttributesKey(STRING_ID, DefaultLanguageHighlighterColors.STRING);
@@ -97,10 +97,7 @@ public class ClojureSyntaxHighlighter extends SyntaxHighlighterBase implements C
     TextAttributesKey.createTextAttributesKey(LITERAL_ID, DefaultLanguageHighlighterColors.KEYWORD);
     TextAttributesKey.createTextAttributesKey(CHAR_ID, DefaultLanguageHighlighterColors.STRING);
     TextAttributesKey.createTextAttributesKey(BAD_CHARACTER_ID, HighlighterColors.BAD_CHARACTER);
-
-    final Color deepBlue = DefaultLanguageHighlighterColors.KEYWORD.getDefaultAttributes().getForegroundColor();
-    ATOM_ATTRIB.setForegroundColor(deepBlue);
-    TextAttributesKey.createTextAttributesKey(ATOM_ID, ATOM_ATTRIB);
+    TextAttributesKey.createTextAttributesKey(ATOM_ID, DefaultLanguageHighlighterColors.IDENTIFIER);
   }
 
   public static final TextAttributesKey LINE_COMMENT = TextAttributesKey.createTextAttributesKey(LINE_COMMENT_ID);
