@@ -10,6 +10,7 @@ import com.intellij.psi.impl.source.tree.LeafPsiElement;
 import com.intellij.psi.tree.IElementType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.clojure.parser.ClojureElementTypes;
+import org.jetbrains.plugins.clojure.psi.api.ClBraced;
 import org.jetbrains.plugins.clojure.psi.api.ClListLike;
 import org.jetbrains.plugins.clojure.settings.ClojureProjectSettings;
 
@@ -37,12 +38,12 @@ public class ClojureBraceHighlighter implements Annotator {
 
   private static int getLevel(PsiElement psiElement) {
     int level = -1;
-    PsiElement eachParent = psiElement;
-    while (eachParent != null) {
-      if (eachParent instanceof ClListLike) {
+    PsiElement elem = psiElement;
+    while (elem != null) {
+      if (elem instanceof ClBraced) {
         level++;
       }
-      eachParent = eachParent.getParent();
+      elem = elem.getParent();
     }
     return level;
   }
