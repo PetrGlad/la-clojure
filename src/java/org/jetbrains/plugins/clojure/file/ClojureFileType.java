@@ -40,6 +40,8 @@ public class ClojureFileType extends LanguageFileType {
   @NonNls
   public static final String CLOJURE_CONDITIONAL_EXTENSION = "cljc";
 
+  @NonNls
+  public static final String CLOJURE_EDN_EXTENSION = "edn";
 
   public ClojureFileType() {
     super(new ClojureLanguage());
